@@ -1,6 +1,6 @@
 Package.describe({
   name: 'ostrio:meteor-root',
-  version: '1.0.0',
+  version: '1.0.2',
   summary: '[Server] Get current path on your server, where is Meteor application is running',
   git: 'https://github.com/VeliovGroup/Meteor-root',
   documentation: 'README.md'
@@ -11,6 +11,7 @@ Package.onUse(function(api) {
   api.addFiles('meteor-root.js', 'server');
 });
 
-Npm.depends({
-  'fs-extra': '0.16.3'
+Package.onTest(function(api) {
+  api.use(['ostrio:meteor-root@1.0.2', 'tinytest'], 'server');
+  api.addFiles('meteor-root-test.js', 'server');
 });

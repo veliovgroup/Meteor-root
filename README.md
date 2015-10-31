@@ -13,4 +13,9 @@ Usage:
 ```javascript
 var pathToFile = Meteor.rootPath + '/folder/where/is/your/file.json';
 ```
-Returns absolute path to `programs/server` folder of your compiled application
+Returns absolute path to `programs/server` folder of your compiled application, without trailing slash
+
+```javascript
+var pathToFile = Meteor.absolutePath + '/.meteor/local/build/programs/server/folder/where/is/your/file.json';
+```
+Returns absolute path to `.meteor` folder of your compiled application, without trailing slash

@@ -1,2 +1,2 @@
-var fs = Npm.require('fs-extra');
-Meteor.rootPath = fs.realpathSync('.');
+Meteor.rootPath     = __meteor_bootstrap__.serverDir;
+Meteor.absolutePath = __meteor_bootstrap__.serverDir.split('/.meteor')[0];
