@@ -1,6 +1,7 @@
 Meteor.rootPath
 ========
 Get current path on your server, where is Meteor application is running
+__This package supports Windows.__ Thanks to [@Konard](https://github.com/Konard).
 
 Install:
 ========
