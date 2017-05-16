@@ -1,6 +1,6 @@
 Package.describe({
   name: 'ostrio:meteor-root',
-  version: '1.0.5',
+  version: '1.0.6',
   summary: '[Server] Get current path on server, where is Meteor application is running',
   git: 'https://github.com/VeliovGroup/Meteor-root',
   documentation: 'README.md'
