@@ -8,6 +8,8 @@ Features:
 - 👨‍💻 Globally available `Meteor.rootPath` — absolute path to `programs/server` directory
 - 👨‍💻 Globally available `Meteor.absolutePath` — absolute path to `.meteor` directory
 
+![meteor-root atmosphere library](https://raw.githubusercontent.com/VeliovGroup/Meteor-root/master/meteor-root.jpg)
+
 ## Install:
 
 ```shell
