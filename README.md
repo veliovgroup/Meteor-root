@@ -1,25 +1,32 @@
-Meteor.rootPath
-========
-Get current path on your server, where is Meteor application is running.
+# Meteor.rootPath
 
-__This package supports Windows.__ Thanks to [@Konard](https://github.com/Konard).
+Get current path on a __server__, where current instance of Meteor application is running.
 
-Install:
-========
+Features:
+- 🤓 Support Windows, Linux, and MacOS environments;
+- 👨‍💻 Globally available `Meteor.rootPath` — absolute path to `programs/server` directory
+- 👨‍💻 Globally available `Meteor.absolutePath` — absolute path to `.meteor` directory
+
+## Install:
+
 ```shell
 meteor add ostrio:meteor-root
 ```
 
-Usage:
-========
-```javascript
-const pathToFile = Meteor.rootPath + '/folder/where/is/your/file.json';
-```
-Returns absolute path to `programs/server` folder of your compiled application, without trailing slash.
+## Usage:
 
-```javascript
-const pathToFile = Meteor.absolutePath + '/.meteor/local/build/programs/server/folder/where/is/your/file.json';
+```js
+const pathToFile = Meteor.rootPath + '/directory/where/is/your/file.json';
 ```
-Returns absolute path to `.meteor` folder of your compiled application, without trailing slash.
 
-__Note__: Be aware of that the path, returned by `Meteor.absolutePath` returns the location from where your Meteor application is running from. This is not guaranteed to be the same as the path of your project. Running Meteor in test-mode, for example, will return a path from a temporary location it's running.
+Returns absolute path to `programs/server` directory of your compiled application, without trailing slash.
+
+```js
+const pathToFile = Meteor.absolutePath + '/.meteor/local/build/programs/server/directory/where/is/your/file.json';
+```
+
+Returns absolute path to `.meteor` directory of your compiled application, without trailing slash.
+
+__Note__: Be aware of the path stored in `Meteor.absolutePath`, it points to the location where Meteor application is running. It isn't guaranteed to be the same path as the path of your project. For example, running Meteor in test-mode will return a path from a temporary location where it's running.
+
+Thanks to [@Konard](https://github.com/Konard) for testing and maintaining Windows support.
