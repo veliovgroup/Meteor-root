@@ -1,8 +1,9 @@
 # Meteor.rootPath
 
-Get current path on a __server__, where current instance of Meteor application is running.
+Get the path to currently running instance of Meteor application on a  __server__.
 
 Features:
+
 - 🤓 Support Windows, Linux, and MacOS environments;
 - 👨‍💻 Globally available `Meteor.rootPath` — absolute path to `programs/server` directory
 - 👨‍💻 Globally available `Meteor.absolutePath` — absolute path to `.meteor` directory
