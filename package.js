@@ -1,17 +1,18 @@
 Package.describe({
   name: 'ostrio:meteor-root',
-  version: '1.0.8',
+  version: '1.1.0',
   summary: '[Server] Get path on a server where Meteor application is currently running',
-  git: 'https://github.com/VeliovGroup/Meteor-root',
+  git: 'https://github.com/veliovgroup/Meteor-root',
   documentation: 'README.md'
 });
 
-Package.onUse(function(api) {
-  api.versionsFrom('1.4');
-  api.addFiles('meteor-root.js', 'server');
+Package.onUse((api) => {
+  api.versionsFrom('2.0');
+  api.use('ecmascript', 'server');
+  api.mainModule('meteor-root.js', 'server');
 });
 
-Package.onTest(function(api) {
-  api.use(['ostrio:meteor-root', 'tinytest'], 'server');
+Package.onTest((api) => {
+  api.use(['tinytest', 'ecmascript'], 'server');
   api.addFiles('meteor-root-test.js', 'server');
 });
