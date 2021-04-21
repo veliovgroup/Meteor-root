@@ -1,1 +1,1 @@
-See full history at [releases on GitHub](https://github.com/VeliovGroup/Meteor-root/releases)
+See full history at [releases on GitHub](https://github.com/veliovgroup/Meteor-root/releases)
