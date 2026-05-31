@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import path from 'path';
 import './meteor-root.js';
 
 Tinytest.add('Meteor.rootPath (see console for path)', (test) => {
@@ -9,5 +10,8 @@ Tinytest.add('Meteor.rootPath (see console for path)', (test) => {
 
 Tinytest.add('Meteor.absolutePath (see console for path)', (test) => {
   console.log(`Meteor.absolutePath is: ${Meteor.absolutePath}`);
-  test.equal(Meteor.absolutePath, process.cwd().split('/.meteor/')[0]);
+  test.equal(
+    Meteor.absolutePath,
+    process.cwd().split(`${path.sep}.meteor`)[0]
+  );
 });
