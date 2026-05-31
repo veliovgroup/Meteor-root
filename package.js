@@ -10,6 +10,7 @@ Package.onUse((api) => {
   api.versionsFrom('2.0');
   api.use('ecmascript', 'server');
   api.mainModule('meteor-root.js', 'server');
+  api.addFiles('meteor-root.d.ts', 'server');
 });
 
 Package.onTest((api) => {
