@@ -45,7 +45,9 @@ Returns application root when `.meteor` is present in `rootPath` (dev, `meteor t
 
 ## TypeScript
 
-Types ship with the package (`meteor-root.d.ts`). With `zodern:types` in your app, reload types via `meteor lint`.
+Types ship via `meteor-root.d.ts` (module augmentation on `meteor/meteor`). The package uses `zodern:types` and `package-types.json` at publish time.
+
+In your app, add `zodern:types`, configure `tsconfig.json` paths for `meteor/*` (see [Meteor core types docs](https://docs.meteor.com/cli/using-core-types)), then run `meteor lint`.
 
 ## Testing
 
@@ -56,14 +58,17 @@ npm install
 npm test
 ```
 
-Uses [`@zodern/mtest`](https://github.com/zodern/mtest) (Tinytest in terminal). Requires a Chromium/Chrome binary for Puppeteer.
+Runs runtime tests (`mtest`) and TypeScript declaration tests (`tsd`). mtest requires a Chromium/Chrome binary for Puppeteer.
 
 ```shell
-# Custom port
-npm test -- --port 8888
+npm run test:once     # runtime only
+npm run test:types    # declarations only
 
-# With local MongoDB
-MONGO_URL="mongodb://127.0.0.1:27017/meteor-root-test" npm test
+# Custom port (runtime)
+npm run test:once -- --port 8888
+
+# With local MongoDB (runtime)
+MONGO_URL="mongodb://127.0.0.1:27017/meteor-root-test" npm run test:once
 ```
 
 ## Special thanks
