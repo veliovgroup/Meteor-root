@@ -4,8 +4,14 @@
 .DS_Store
 .versions
 .eslintcache
+.cursorignore
+.npmignore
 node_modules
 package.json
 package-lock.json
 meteor-root.jpg
+CONTRIBUTING.md
+CHANGELOG.md
+HISTORY.md
+CODE_OF_CONDUCT.md
 docs
