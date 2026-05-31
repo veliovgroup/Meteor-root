@@ -4,7 +4,9 @@ Run tests with [`@zodern/mtest`](https://github.com/zodern/mtest):
 
 ```shell
 npm install
-npm test
+npm test              # mtest + tsd
+npm run test:once     # runtime Tinytest only
+npm run test:types    # TypeScript declarations (tsd)
 ```
 
 Do not use bare `meteor test-packages` for CI — mtest runs Tinytest headlessly and reports results in the terminal.
@@ -29,6 +31,14 @@ Playwright-installed Chrome for Testing works:
 ```shell
 export PUPPETEER_EXECUTABLE_PATH="$HOME/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"
 npm test
+```
+
+## TypeScript type tests
+
+Declaration tests use [`tsd`](https://github.com/SamVerschueren/tsd) against `meteor-root.d.ts` (module augmentation on `meteor/meteor`):
+
+```shell
+npm run test:types
 ```
 
 ## Options

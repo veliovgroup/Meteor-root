@@ -1,9 +1,30 @@
 {
   "private": true,
+  "types": "meteor-root.d.ts",
   "scripts": {
-    "test": "mtest --package ./ --once"
+    "test": "npm run test:once && npm run test:types",
+    "test:once": "mtest --package ./ --once",
+    "test:types": "tsd"
   },
   "devDependencies": {
-    "@zodern/mtest": "^0.5.1"
+    "@types/meteor": "^2.9.11",
+    "@zodern/mtest": "^0.5.1",
+    "tsd": "^0.33.0"
+  },
+  "tsd": {
+    "files": [
+      "meteor-root.test-d.ts"
+    ],
+    "compilerOptions": {
+      "strict": true,
+      "noEmit": true,
+      "moduleResolution": "node10",
+      "baseUrl": ".",
+      "paths": {
+        "meteor/meteor": [
+          "node_modules/@types/meteor/meteor.d.ts"
+        ]
+      }
+    }
   }
 }
