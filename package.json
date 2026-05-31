@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "mtest --package ./ --once"
+  },
+  "devDependencies": {
+    "@zodern/mtest": "^0.5.1"
+  }
+}
