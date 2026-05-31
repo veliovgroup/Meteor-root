@@ -12,7 +12,7 @@ __Features:__
 
 - 🤓 Compatibility with Windows, Linux, and MacOS environments;
 - 👨‍💻 Globally available `Meteor.rootPath` — absolute path to `programs/server` directory;
-- 👨‍💻 Globally available `Meteor.absolutePath` — absolute path to `.meteor` directory.
+- 👨‍💻 Globally available `Meteor.absolutePath` — application root (path before `.meteor` in `rootPath`).
 
 ![meteor-root atmosphere library](https://raw.githubusercontent.com/veliovgroup/Meteor-root/master/meteor-root.jpg)
 
@@ -25,39 +25,50 @@ meteor add ostrio:meteor-root
 ## Usage
 
 ```js
-const pathToFile = `${Meteor.rootPath}/directory/where/is/your/file.json`;
+import path from 'path';
+
+const pathToFile = path.join(Meteor.rootPath, 'directory', 'file.json');
 ```
 
-Returns absolute path to `programs/server` directory of your compiled application, without trailing slash.
+Returns absolute path to `programs/server` directory of the running app, without trailing slash. Same as server `process.cwd()`.
 
 ```js
-const pathToFile = `${Meteor.absolutePath}/.meteor/local/build/programs/server/directory/where/is/your/file.json`;
+import path from 'path';
+
+const pathToFile = path.join(Meteor.absolutePath, 'private', 'file.json');
 ```
 
-Returns absolute path to `.meteor` directory of your compiled application, without trailing slash.
+Returns application root when `.meteor` is present in `rootPath` (dev, `meteor test-packages`). In typical production bundles, equals `Meteor.rootPath`. See [docs/paths-and-environments.md](docs/paths-and-environments.md).
 
-__Note__: Be aware of the path stored in `Meteor.absolutePath`, it points to the location where Meteor application is running. It isn't guaranteed to be the same path as the path of your project. For example, running Meteor in test-mode will return a path from a temporary location where it's running.
+> [!NOTE]
+> Paths reflect where Meteor is running, not necessarily your git checkout. Test runners use temporary build directories.
+
+## TypeScript
+
+Types ship with the package (`meteor-root.d.ts`). With `zodern:types` in your app, reload types via `meteor lint`.
+
+## Testing
+
+From the package directory:
+
+```shell
+npm install
+npm test
+```
+
+Uses [`@zodern/mtest`](https://github.com/zodern/mtest) (Tinytest in terminal). Requires a Chromium/Chrome binary for Puppeteer.
+
+```shell
+# Custom port
+npm test -- --port 8888
+
+# With local MongoDB
+MONGO_URL="mongodb://127.0.0.1:27017/meteor-root-test" npm test
+```
 
 ## Special thanks
 
 - Thanks to [@Konard](https://github.com/Konard) for testing and maintaining Windows support.
-
-## Testing
-
-1. Clone this package
-2. In Terminal (*Console*) go to directory where package is cloned
-3. Then run:
-
-```shell
-# Default
-meteor test-packages ./
-
-# With custom port
-meteor test-packages ./ --port 8888
-
-# With local MongoDB and custom port
-MONGO_URL="mongodb://127.0.0.1:27017/meteor-root-test" meteor test-packages ./ --port 8888
-```
 
 ## Support this project:
 
