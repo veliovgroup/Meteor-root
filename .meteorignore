@@ -11,6 +11,7 @@ package.json
 package-lock.json
 meteor-root.jpg
 meteor-root-test.js
+meteor-root.test-d.ts
 CONTRIBUTING.md
 CHANGELOG.md
 HISTORY.md
